@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Delphi Father's Day - Dark Theme</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Tahoma, sans-serif;
+      background-color: #1e1e1e;
+      color: #000000;
+      user-select: none;
+    }
+    .menu-bar {
+      background-color: #2d2d30;
+      padding: 5px 10px;
+      font-size: 14px;
+      display: flex;
+      gap: 15px;
+      border-bottom: 1px solid #444;
+      color: #cccccc;
+      user-select: none;
+    }
+    .container {
+      display: flex;
+      height: calc(100vh - 30px);
+    }
+    .left-panel {
+      width: 160px;
+      background-color: #252526;
+      border-right: 1px solid #444;
+      padding: 8px;
+    }
+    .center-panel {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .code-editor {
+      flex: 1;
+      background-color: #1e1e1e;
+      padding: 10px;
+      font-family: Consolas, monospace;
+      color: #d4d4d4;
+      font-size: 14px;
+      overflow: auto;
+      white-space: pre-wrap;
+      border: none;
+    }
+    .code-editor .keyword { color: #569CD6; }
+    .code-editor .string { color: #d69d85; }
+    .code-editor .comment { color: #6a9955; font-style: italic; }
+    .object-inspector {
+      width: 220px;
+      background-color: #252526;
+      border-left: 1px solid #444;
+      padding: 8px;
+      font-size: 13px;
+      color: #cccccc;
+    }
+    .object-inspector h3 {
+      font-size: 14px;
+      margin-top: 0;
+      border-bottom: 1px solid #444;
+    }
+    .messages {
+      background-color: #1e1e1e;
+      border-top: 1px solid #444;
+      padding: 6px;
+      font-size: 12px;
+      font-family: monospace;
+      color: #0f9800;
+      height: 100px;
+      overflow-y: auto;
+    }
+    .qr {
+      margin-top: 15px;
+      text-align: center;
+    }
+    .button {
+      background-color: #3c3c3c;
+      border: 1px solid #555;
+      padding: 3px 8px;
+      margin: 2px 0;
+      text-align: center;
+      font-size: 12px;
+      cursor: default;
+      color: #cccccc;
+      user-select: none;
+    }
+    #runBtn {
+      background: linear-gradient(to bottom, #c0d8f0, #7ba8de);
+      border: 1px solid #4a6ea9;
+      border-radius: 4px;
+      color: #103974;
+      font-weight: bold;
+      padding: 6px 20px;
+      cursor: pointer;
+      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+      font-family: Tahoma, Arial, sans-serif;
+      user-select: none;
+      transition: background 0.3s ease;
+    }
+    #runBtn:hover {
+      background: linear-gradient(to bottom, #7ba8de, #c0d8f0);
+      color: #0b246e;
+    }
+    #runBtn:active {
+      background: linear-gradient(to bottom, #5a8cd3, #3b6db7);
+      box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.4);
+      color: #e0e8ff;
+    }
+    #modalOverlay {
+      display: none;
+      position: fixed;
+      top:0; left:0; right:0; bottom:0;
+      background: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    /* Modal pencere */
+    #modalBox {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      width: 300px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      font-family: Tahoma, Arial, sans-serif;
+      text-align: center;
+    }
+    /* Buton */
+    #modalBtn {
+      margin-top: 20px;
+      padding: 8px 16px;
+      border: none;
+      background: #4a7bd1;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    #modalBtn:hover {
+      background: #365f9d;
+    }
+  </style>
+</head>
+<body>
+  <div class="menu-bar">
+    File | Edit | View | Search | Run | Tools | Help
+    <button id="runBtn">Run</button>
+  </div>
+
+  <div class="container">
+    <div class="left-panel">
+      <div class="button">TButton</div>
+      <div class="button">TLabel</div>
+      <div class="button">TEdit</div>
+      <div class="button">TMemo</div>
+      <div class="button">TForm</div>
+    </div>
+    <div class="center-panel">
+      <div class="code-editor">
+<pre>
+<span class="keyword">unit</span> FathersDay;
+
+<span class="keyword">interface</span>
+
+<span class="keyword">uses</span>
+  SysUtils, Classes, LoveUnit;
+
+<span class="keyword">type</span>
+  TMyDad = <span class="keyword">class</span>
+  <span class="keyword">public</span>
+    <span class="keyword">procedure</span> TeachLife;
+    <span class="keyword">procedure</span> SupportAlways;
+    <span class="keyword">procedure</span> InspireMe;
+  <span class="keyword">end</span>;
+
+<span class="keyword">var</span>
+  Dad: TMyDad;
+
+<span class="keyword">implementation</span>
+
+<span class="keyword">procedure</span> TMyDad.TeachLife;
+<span class="keyword">begin</span>
+  ShowMessage(<span class="string">'Sen bana ayakta kalmayı öğretensin...'</span>);
+<span class="keyword">end</span>;
+
+<span class="keyword">procedure</span> TMyDad.SupportAlways;
+<span class="keyword">begin</span>
+  ShowMessage(<span class="string">'Hep bana destek çıkıp önemsediğin için teşekkür ederim...'</span>);
+<span class="keyword">end</span>;
+
+<span class="keyword">procedure</span> TMyDad.InspireMe;
+<span class="keyword">begin</span>
+  ShowMessage(<span class="string">'Ben küçüklükten beri senden ilham alıyorum ve bir gün senin gibi başarılı bir baba ve insan olmak istiyorum...'</span>);
+<span class="keyword">end</span>;
+
+<span class="keyword">begin</span>
+  Dad := TMyDad.Create;
+  Dad.TeachLife;
+  Dad.SupportAlways;
+  Dad.InspireMe;
+  ShowMessage(<span class="string">'Babalar günün kutlu olsun. İyiki varsın babam <3'</span>);
+<span class="keyword">end</span>.
+</pre>
+      </div>
+      <div class="messages">[Hint] Compilation success. Message shown.</div>
+    </div>
+    <div class="object-inspector">
+      <h3>Object Inspector</h3>
+      <b>Object:</b> Dad:TMyDad<br><br>
+      <b>Properties</b><br>
+      SupportLevel = MAX<br>
+      Strength = Infinite<br>
+      Wisdom = Legendary<br>
+      Humor := True<br>
+      <div class="qr">
+        <!-- QR kod buraya gömülebilir -->
+        <img src="https://cdn.qr-code-generator.com/qrcode-preview?background_color=%23ffffff&foreground_color=%23000000&marker_left_inner_color=%23000000&marker_left_outer_color=%23000000&marker_right_inner_color=%23000000&marker_right_outer_color=%23000000&marker_bottom_inner_color=%23000000&marker_bottom_outer_color=%23000000&marker_left_template=version17&marker_right_template=version17&marker_bottom_template=version17&qr_code_text=https%3A%2F%2Fqrco.de%2Fbg3tRz&frame_name=no-frame&frame_color=%23000000&frame_icon_name=&frame_text=&frame_text_color=%23FFFFFF&frame_text_font=&frame_text_alignment=&Expires=1749402917&Signature=QU5-r6QRKr2vKuarIBcURujld9G9SRT~IgMaFOfOY78yOW278BJGa6HYnzFzX6~eG4ixHqlX1TLdKt8T8r97B9gMkDPHq46wiZ7N8jZX-jO1mTSAfEKv7T8xhisaOMHkqDDhV3uuDWFfM7a2mIYNBWmILZqyBzQ~67ZV77jLb8Hv7K35XR9oJFMoJrYty1WLCipdNvsRRk3KsPduJSwRTqkokdeaeky3~P02Kt9oUjJ61iFCb2v8IuWDfO5mKEy-dRbpMfiZ1KlVWAHtfvIk2EuEu8B7hO7F0LQUCdOb0F5q8ysZG6JQe65UChzX-GppMlLtx5GJNp7dLUFe6OECkQ__&Key-Pair-Id=KKMPOJU8AYATR" alt="QR Kod" width="120" />
+      </div>
+    </div>
+  </div>
+   <div id="modalOverlay">
+    <div id="modalBox">
+      <div id="modalMessage"></div>
+      <button id="modalBtn">Tamam</button>
+    </div>
+  </div>
+
+  <script>
+    const messages = [
+      'Sen bana ayakta kalmayı öğretensin...',
+      'Hep bana destek çıkıp önemsediğin için teşekkür ederim...',
+      'Ben küçüklükten beri senden ilham alıyorum ve bir gün senin gibi başarılı bir baba ve insan olmak istiyorum...',
+      'Babalar günün kutlu olsun. İyiki varsın babam <3'
+    ];
+
+    const modalOverlay = document.getElementById('modalOverlay');
+    const modalMessage = document.getElementById('modalMessage');
+    const modalBtn = document.getElementById('modalBtn');
+
+    let currentIndex = 0;
+
+    function showModalMessage(index) {
+      modalMessage.textContent = messages[index];
+      modalOverlay.style.display = 'flex';
+    }
+
+    modalBtn.addEventListener('click', () => {
+      currentIndex++;
+      if (currentIndex < messages.length) {
+        showModalMessage(currentIndex);
+      } else {
+        modalOverlay.style.display = 'none';
+        currentIndex = 0; // reset
+      }
+    });
+
+    document.getElementById('runBtn').addEventListener('click', () => {
+      showModalMessage(0);
+    });
+  </script>
+
+</body>
+</html>
