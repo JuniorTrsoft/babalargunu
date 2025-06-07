@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Ömer Boz</title>
+  <title>Ömer Boz </title>
   <style>
     body {
       margin: 0;
@@ -64,12 +64,24 @@
       border-bottom: 1px solid #444;
     }
     .messages {
+      display: none; /* Başlangıçta gizli */
       background-color: #1e1e1e;
       border-top: 1px solid #444;
       padding: 6px;
       font-size: 12px;
       font-family: monospace;
       color: #0f9800;
+      height: 100px;
+      overflow-y: auto;
+    }
+    .messages-not {
+      display: block; /* Başlangıçta görünür */
+      background-color: #1e1e1e;
+      border-top: 1px solid #444;
+      padding: 6px;
+      font-size: 12px;
+      font-family: monospace;
+      color: #b50202;
       height: 100px;
       overflow-y: auto;
     }
@@ -206,6 +218,7 @@
 <span class="keyword">end</span>.
 </pre>
       </div>
+      <div class="messages-not">[Error] Code not run. Message dont shown.</div>
       <div class="messages">[Hint] Compilation success. Message shown.</div>
     </div>
     <div class="object-inspector">
@@ -258,7 +271,13 @@
       }
     });
 
+    const messagesDiv = document.querySelector('.messages');
+    const messagesNotDiv = document.querySelector('.messages-not');
+
     document.getElementById('runBtn').addEventListener('click', () => {
+      messagesDiv.style.display = 'block';
+      messagesNotDiv.style.display = 'none';
+
       showModalMessage(0);
     });
   </script>
